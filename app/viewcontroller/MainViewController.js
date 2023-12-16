@@ -34,5 +34,5 @@ Ext.define('irelyTraining.viewcontroller.MainViewController', {
 
     showCustomersView: function () {
         // Implement logic to show the customers view
-    }
+    },
 });

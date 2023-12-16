@@ -1,6 +1,7 @@
 
 Ext.define('irelyTraining.model.Movie', {
     extend: 'Ext.data.Model',
+    alias: 'model.movies',
 
     fields: [
         { name: 'id', type: 'string' },

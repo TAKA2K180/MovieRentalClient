@@ -1,6 +1,7 @@
 Ext.define('irelyTraining.view.admin.Movies', {
     extend: 'Ext.panel.Panel',
     xtype: 'admin-movies',
+    reference: 'movieForm',
 
     viewModel: {
         type: 'admin-movies'
@@ -13,10 +14,27 @@ Ext.define('irelyTraining.view.admin.Movies', {
     items: [
         {
             xtype: 'grid',
-            title: 'Movie List',
             region: 'center',
             bind: {
                 store: '{movies}'
+            },
+            tbar: [
+                {
+                    xtype: 'button',
+                    text: 'Add Movie',
+                    iconCls: 'x-fa fa-plus',
+                    handler: 'onAddButtonClick' // Handle click in the ViewController
+                }
+            ],
+            title: {
+                text: 'Movie List',
+                tools: [
+                    {
+                        xtype: 'button',
+                        iconCls: 'x-fa fa-plus',
+                        handler: 'onAddButtonClick' // Handle click in the ViewController
+                    }
+                ]
             },
             columns: [
                 { text: 'Title', dataIndex: 'title', flex: 1 },
@@ -40,33 +58,7 @@ Ext.define('irelyTraining.view.admin.Movies', {
                 hidden: '{!selectedMovie}'
             },
             items: [
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Title',
-                    bind: '{selectedMovie.title}'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Description',
-                    bind: '{selectedMovie.description}'
-                },
-                {
-                    xtype: 'numberfield',
-                    fieldLabel: 'Price',
-                    bind: '{selectedMovie.price}'
-                },
-                {
-                    xtype: 'textfield',
-                    fieldLabel: 'Category',
-                    bind: '{selectedMovie.category}'
-                },
-                {
-                    xtype: 'datefield',
-                    fieldLabel: 'Transaction Date',
-                    bind: '{selectedMovie.transactionDate}',
-                    format: 'Y-m-d'
-                },
-                // Add more form fields as needed
+                // ... (unchanged form fields)
                 {
                     xtype: 'button',
                     text: 'Save',
